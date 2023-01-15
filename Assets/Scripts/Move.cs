@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,7 +9,6 @@ public class Move : MonoBehaviour
   
     [SerializeField] Transform target; 
     NavMeshAgent navMeshAgent;
-    Ray lastRay;
     void Start() 
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
