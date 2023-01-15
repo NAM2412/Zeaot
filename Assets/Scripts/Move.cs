@@ -5,15 +5,21 @@ using UnityEngine.AI;
 
 public class Move : MonoBehaviour
 {
-    // Start is called before the first frame update
+  
     [SerializeField] Transform target; 
     NavMeshAgent navMeshAgent;
+    Ray lastRay;
     void Start() 
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
     }
     void Update()
     {
+        if (Input.GetMouseButtonDown(0))
+        {
+            lastRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+        }
+        Debug.DrawRay(lastRay.origin, lastRay.direction*100, Color.cyan);
         navMeshAgent.SetDestination(target.position);
     }
 }
