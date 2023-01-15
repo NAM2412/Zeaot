@@ -17,9 +17,20 @@ public class Move : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            lastRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+            MoveToCursor();
         }
-        Debug.DrawRay(lastRay.origin, lastRay.direction*100, Color.cyan);
-        navMeshAgent.SetDestination(target.position);
+        
+        
+    }
+
+    private void MoveToCursor()
+    {
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hitDetails;
+        bool hasHit = Physics.Raycast(ray, out hitDetails);
+        if (hasHit)
+        {
+            navMeshAgent.SetDestination(hitDetails.point);
+        }
     }
 }
