@@ -17,9 +17,7 @@ namespace RPG.Movement
         }
         void Update()
         {
-        
-            UpdateAnimator();
-            
+            UpdateAnimator();    
         }
 
         private void UpdateAnimator()
@@ -38,9 +36,6 @@ namespace RPG.Movement
             float speed = localVelocity.z;
             GetComponent<Animator>().SetFloat("forwardSpeed",speed);
         }
-
-    
-
         public void MoveToDestination(Vector3 destination)
         {
         navMeshAgent.SetDestination(destination);
