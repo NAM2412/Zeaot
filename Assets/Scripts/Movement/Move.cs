@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using RPG.Combat;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -45,6 +46,11 @@ namespace RPG.Movement
         {
             navMeshAgent.SetDestination(destination);
             navMeshAgent.isStopped = false;
+        }
+        public void StarMoveAction(Vector3 destination)
+        {
+            GetComponent<Fighter>().CancelAttack(); // when mouse down, player will not move to tarfet again
+            MoveToDestination(destination);
         }
     }
 }
