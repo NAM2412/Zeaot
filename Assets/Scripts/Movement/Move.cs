@@ -53,7 +53,5 @@ namespace RPG.Movement
             MoveToDestination(destination);
             GetComponent<ActionScheduler>().StartAction(this);
         }
-
-
     }
 }
