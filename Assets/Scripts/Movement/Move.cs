@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using RPG.Combat;
+using RPG.Core;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -51,6 +52,7 @@ namespace RPG.Movement
         {
             GetComponent<Fighter>().CancelAttack(); // when mouse down, player will not move to tarfet again
             MoveToDestination(destination);
+            GetComponent<ActionScheduler>().StartAction(this);
         }
     }
 }

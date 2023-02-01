@@ -1,5 +1,6 @@
 using UnityEngine;
 using RPG.Movement;
+using RPG.Core;
 namespace RPG.Combat
 {
     public class Fighter : MonoBehaviour 
@@ -16,6 +17,7 @@ namespace RPG.Combat
             else
             {
                 GetComponent<Move>().Stop();
+                
             }
         }
 
@@ -26,6 +28,7 @@ namespace RPG.Combat
 
         public void Attack (CombatTarget combatTarget) 
         {
+            GetComponent<ActionScheduler>().StartAction(this); // if player is moving and starting to fighting,
             target = combatTarget.transform;    
         }
 
