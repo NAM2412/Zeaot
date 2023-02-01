@@ -1,14 +1,13 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using RPG.Combat;
 using RPG.Core;
 using UnityEngine;
 using UnityEngine.AI;
 
 namespace RPG.Movement
 {
-    public class Move : MonoBehaviour
+    public class Move : MonoBehaviour, IAction
     {
     
         [SerializeField] Transform target; 
@@ -39,8 +38,9 @@ namespace RPG.Movement
             GetComponent<Animator>().SetFloat("forwardSpeed",speed);
         }
 
-        public void Stop() 
+        public void Cancel() 
         {
+            
             navMeshAgent.isStopped = true;
         }
         public void MoveToDestination(Vector3 destination)
@@ -50,9 +50,10 @@ namespace RPG.Movement
         }
         public void StarMoveAction(Vector3 destination)
         {
-            GetComponent<Fighter>().CancelAttack(); // when mouse down, player will not move to tarfet again
             MoveToDestination(destination);
             GetComponent<ActionScheduler>().StartAction(this);
         }
+
+
     }
 }

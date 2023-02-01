@@ -42,6 +42,7 @@
      <Compile Include="Assets\Scripts\Movement\Move.cs" />
      <Compile Include="Assets\Scripts\Core\FollowCamera.cs" />
      <Compile Include="Assets\Scripts\Core\ActionScheduler.cs" />
+     <Compile Include="Assets\Scripts\Core\IAction.cs" />
      <None Include="Assets\Asset Packs\Synty - Polygon Student Sample\README - Usage Rights for these assets.txt" />
     <Reference Include="UnityEngine">
         <HintPath>D:\UNITY\UnityHub\2021.3.13f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
