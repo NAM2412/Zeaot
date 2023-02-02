@@ -36,7 +36,7 @@ namespace RPG.Combat
         private  void AttackBehaviour()
         {
             if (timeSinceLastAttack > timeIntervalBetweenEachAttacks)
-            {
+            {                
                 // this will trigger the Hit() event
                 GetComponent<Animator>().SetTrigger("attack");
                 timeSinceLastAttack = 0f;
@@ -49,7 +49,7 @@ namespace RPG.Combat
         private void Hit() 
         {
             Health healthComponent = target.GetComponent<Health>();
-                healthComponent.TakeDamge(weaponDamage);
+            healthComponent.TakeDamge(weaponDamage);
         }
 
         private bool GetIsInRange() // is player reach the enemy in weapon's range?
