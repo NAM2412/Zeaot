@@ -11,7 +11,7 @@ namespace RPG.Combat
         [SerializeField] float timeIntervalBetweenEachAttacks = 1f;
         [SerializeField] float weaponDamage = 5f;
         Health target;
-        float timeSinceLastAttack = 0f;
+        float timeSinceLastAttack = Mathf.Infinity; 
         CombatTarget combatTarget1;
         private void Start() 
         {
@@ -39,8 +39,8 @@ namespace RPG.Combat
         {
             //make player look at target first
             transform.LookAt(target.transform);
-
-            if (timeSinceLastAttack > timeIntervalBetweenEachAttacks)
+            // player can attack immediately because timeSinceLastAttack at the very first attack is equal to infinity;
+            if (timeSinceLastAttack > timeIntervalBetweenEachAttacks) 
             {
                 // this will trigger the Hit() event
                 TriggerAttack();
