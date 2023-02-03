@@ -23,14 +23,16 @@ namespace RPG.Control
             {
                 
                 CombatTarget target = subHit.transform.GetComponent<CombatTarget>();
-                if (!GetComponent<Fighter>().CanAttack(target)) 
+                if (target == null) { continue; }
+
+                if (!GetComponent<Fighter>().CanAttack(target.gameObject)) 
                 {
                     continue;
                 }
                 
                 if (Input.GetMouseButtonDown(0))
                 {
-                    GetComponent<Fighter>().Attack(target);
+                    GetComponent<Fighter>().Attack(target.gameObject);
                 }
                 return true; // advoid interact with movement when the mouse not down this frame or hovering that target
             }

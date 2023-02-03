@@ -10,7 +10,6 @@ namespace RPG.Movement
     public class Move : MonoBehaviour, IAction
     {
     
-        [SerializeField] Transform target; 
         NavMeshAgent navMeshAgent;
         void Start() 
         {
