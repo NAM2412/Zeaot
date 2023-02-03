@@ -11,12 +11,16 @@ namespace RPG.Movement
     {
     
         NavMeshAgent navMeshAgent;
+        Health health;
         void Start() 
         {
             navMeshAgent = GetComponent<NavMeshAgent>();
+            health = GetComponent<Health>();
         }
         void Update()
         {
+            
+            navMeshAgent.enabled = !health.IsDead; // player can go through enemy's dead body
             UpdateAnimator();    
         }
 
