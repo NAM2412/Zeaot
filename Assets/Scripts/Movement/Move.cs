@@ -39,8 +39,8 @@ namespace RPG.Movement
 
         public void Cancel() 
         {
-            
             navMeshAgent.isStopped = true;
+            
         }
         public void MoveToDestination(Vector3 destination)
         {

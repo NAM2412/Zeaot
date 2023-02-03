@@ -72,7 +72,7 @@ namespace RPG.Combat
         public void Attack (GameObject combatTarget) 
         {
             GetComponent<ActionScheduler>().StartAction(this); //  player stops moving and starts to fighting,
-            target = combatTarget.GetComponent<Health>();    
+            target = combatTarget.GetComponent<Health>(); 
         }
 
         public void Cancel()
