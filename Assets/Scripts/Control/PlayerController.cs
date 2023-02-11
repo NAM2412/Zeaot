@@ -4,13 +4,22 @@ using UnityEngine;
 using RPG.Movement;
 using System;
 using RPG.Combat;
+using RPG.Core;
 
 namespace RPG.Control
 {
     public class PlayerController : MonoBehaviour
     {
+        Health health;
+        void Start()
+        {
+            health = GetComponent<Health>();
+        }
+
         void Update()
         {
+            if (health.IsDead) return; // if player is dead, disable to controll player
+
             if (InteractWithCombat()) return;
             if (InteractWithMovement()) return;
         }
@@ -23,14 +32,16 @@ namespace RPG.Control
             {
                 
                 CombatTarget target = subHit.transform.GetComponent<CombatTarget>();
-                if (!GetComponent<Fighter>().CanAttack(target)) 
+                if (target == null) { continue; }
+
+                if (!GetComponent<Fighter>().CanAttack(target.gameObject)) 
                 {
                     continue;
                 }
                 
-                if (Input.GetMouseButtonDown(0))
+                if (Input.GetMouseButton(0))
                 {
-                    GetComponent<Fighter>().Attack(target);
+                    GetComponent<Fighter>().Attack(target.gameObject);
                 }
                 return true; // advoid interact with movement when the mouse not down this frame or hovering that target
             }

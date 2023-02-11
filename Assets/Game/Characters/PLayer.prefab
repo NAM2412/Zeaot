@@ -68,6 +68,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -5188199425785823394, guid: 61d8a35fad4d3d0438ab449dda9d2b22, type: 3}
+      propertyPath: healthPoint
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 324764748, guid: 61d8a35fad4d3d0438ab449dda9d2b22, type: 3}
       propertyPath: target
       value: 
@@ -78,7 +82,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4045421877223003518, guid: 61d8a35fad4d3d0438ab449dda9d2b22, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -6.24
       objectReference: {fileID: 0}
     - target: {fileID: 4045421877223003518, guid: 61d8a35fad4d3d0438ab449dda9d2b22, type: 3}
       propertyPath: m_LocalPosition.y
@@ -86,7 +90,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4045421877223003518, guid: 61d8a35fad4d3d0438ab449dda9d2b22, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -2.21
       objectReference: {fileID: 0}
     - target: {fileID: 4045421877223003518, guid: 61d8a35fad4d3d0438ab449dda9d2b22, type: 3}
       propertyPath: m_LocalRotation.w
@@ -119,6 +123,14 @@ PrefabInstance:
     - target: {fileID: 7953190880982405983, guid: 61d8a35fad4d3d0438ab449dda9d2b22, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 7953190880982405983, guid: 61d8a35fad4d3d0438ab449dda9d2b22, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 8349744201124141626, guid: 61d8a35fad4d3d0438ab449dda9d2b22, type: 3}
+      propertyPath: weaponDamage
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 61d8a35fad4d3d0438ab449dda9d2b22, type: 3}

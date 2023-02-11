@@ -11,7 +11,7 @@ namespace RPG.Combat
         [SerializeField] float timeIntervalBetweenEachAttacks = 1f;
         [SerializeField] float weaponDamage = 5f;
         Health target;
-        float timeSinceLastAttack = 0f;
+        float timeSinceLastAttack = Mathf.Infinity; 
         CombatTarget combatTarget1;
         private void Start() 
         {
@@ -39,8 +39,8 @@ namespace RPG.Combat
         {
             //make player look at target first
             transform.LookAt(target.transform);
-
-            if (timeSinceLastAttack > timeIntervalBetweenEachAttacks)
+            // player can attack immediately because timeSinceLastAttack at the very first attack is equal to infinity;
+            if (timeSinceLastAttack > timeIntervalBetweenEachAttacks) 
             {
                 // this will trigger the Hit() event
                 TriggerAttack();
@@ -69,10 +69,10 @@ namespace RPG.Combat
             return Vector3.Distance(transform.position, target.transform.position) < weaponRange;
         }
 
-        public void Attack (CombatTarget combatTarget) 
+        public void Attack (GameObject combatTarget) 
         {
             GetComponent<ActionScheduler>().StartAction(this); //  player stops moving and starts to fighting,
-            target = combatTarget.GetComponent<Health>();    
+            target = combatTarget.GetComponent<Health>(); 
         }
 
         public void Cancel()
@@ -87,7 +87,7 @@ namespace RPG.Combat
             GetComponent<Animator>().SetTrigger("stopAttack");
         }
 
-        public bool CanAttack(CombatTarget combatTarget)
+        public bool CanAttack(GameObject combatTarget)
         {
             if (combatTarget == null) {return false;}
 

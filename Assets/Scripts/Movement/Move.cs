@@ -10,14 +10,17 @@ namespace RPG.Movement
     public class Move : MonoBehaviour, IAction
     {
     
-        [SerializeField] Transform target; 
         NavMeshAgent navMeshAgent;
+        Health health;
         void Start() 
         {
             navMeshAgent = GetComponent<NavMeshAgent>();
+            health = GetComponent<Health>();
         }
         void Update()
         {
+            
+            navMeshAgent.enabled = !health.IsDead; // player can go through enemy's dead body
             UpdateAnimator();    
         }
 
@@ -40,8 +43,8 @@ namespace RPG.Movement
 
         public void Cancel() 
         {
-            
             navMeshAgent.isStopped = true;
+            
         }
         public void MoveToDestination(Vector3 destination)
         {
