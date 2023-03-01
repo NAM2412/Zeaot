@@ -21,7 +21,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 417656, guid: 30cf93deff988e74e88a144bd2127c18, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.12
       objectReference: {fileID: 0}
     - target: {fileID: 417656, guid: 30cf93deff988e74e88a144bd2127c18, type: 3}
       propertyPath: m_LocalPosition.z
@@ -90,15 +90,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4045421877223003518, guid: 61d8a35fad4d3d0438ab449dda9d2b22, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -10.99
+      value: -0.79
       objectReference: {fileID: 0}
     - target: {fileID: 4045421877223003518, guid: 61d8a35fad4d3d0438ab449dda9d2b22, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.00000071525574
+      value: -1.46
       objectReference: {fileID: 0}
     - target: {fileID: 4045421877223003518, guid: 61d8a35fad4d3d0438ab449dda9d2b22, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.12
+      value: -24.27
       objectReference: {fileID: 0}
     - target: {fileID: 4045421877223003518, guid: 61d8a35fad4d3d0438ab449dda9d2b22, type: 3}
       propertyPath: m_LocalRotation.w
@@ -131,6 +131,10 @@ PrefabInstance:
     - target: {fileID: 7953190880982405983, guid: 61d8a35fad4d3d0438ab449dda9d2b22, type: 3}
       propertyPath: m_Name
       value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 8349744201124141626, guid: 61d8a35fad4d3d0438ab449dda9d2b22, type: 3}
+      propertyPath: weaponDamage
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 324764748, guid: 61d8a35fad4d3d0438ab449dda9d2b22, type: 3}
@@ -185,6 +189,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9caffe403a5385d41b9730336926eca6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxSpeed: 6
 --- !u!114 &4605514562275796550
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -197,7 +202,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d73c680daf577004eb62a9bd5209a8ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthPoint: 20
+  healthPoint: 40
 --- !u!114 &6722877602721863096
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -215,3 +220,4 @@ MonoBehaviour:
   waypointDwellingTime: 2
   patrolPath: {fileID: 0}
   waypointTolerance: 1
+  patrolSpeedFraction: 0.2
