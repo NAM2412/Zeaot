@@ -18,6 +18,8 @@ namespace RPG.Control
         [Header("Patrol And Path")]
         [SerializeField] PatrolPath patrolPath;
         [SerializeField] float waypointTolerance = 1f;
+        [Range(0,1)]
+        [SerializeField] float patrolSpeedFraction = 0.2f;
         
 
         #region Declare variable
@@ -84,7 +86,7 @@ namespace RPG.Control
             }
             if (timeSinceArrivedAtWaypoint > waypointDwellingTime)
             {
-                mover.StarMoveAction(nextPosition);
+                mover.StarMoveAction(nextPosition, patrolSpeedFraction);
             }
 
         }

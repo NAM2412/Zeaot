@@ -11,6 +11,7 @@ namespace RPG.Control
     public class PlayerController : MonoBehaviour
     {
         Health health;
+        float maxSpeedValue = 1f;
         void Start()
         {
             health = GetComponent<Health>();
@@ -56,7 +57,7 @@ namespace RPG.Control
             {
                 if (Input.GetMouseButton(0))
                 {
-                    GetComponent<Move>().StarMoveAction(hitDetails.point);
+                    GetComponent<Move>().StarMoveAction(hitDetails.point, maxSpeedValue);
                 }
                 return true;
             }
