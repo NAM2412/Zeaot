@@ -9,8 +9,14 @@ namespace RPG.SCeneManagement
     public class SavingWrapper : MonoBehaviour
     {
         const string defaultSaveFile = "save";
+        [SerializeField] float fadeInTime = 0.2f;
 
-       
+       IEnumerator Start()
+       {
+            Fader fader = FindObjectOfType<Fader>();
+            yield return GetComponent<SavingSystem>().LoadLastScene(defaultSaveFile);
+            yield return fader.FadeIn(fadeInTime);
+       }
         void Update()  // Load and do saving API
         {
             if (Input.GetKeyDown(KeyCode.L))
@@ -23,15 +29,15 @@ namespace RPG.SCeneManagement
             }
         }
 
-        private void SaveGame()
+        public void SaveGame()
         {
             GetComponent<SavingSystem>().Save(defaultSaveFile);
         }
 
-        private void LoadGame()
+        public void LoadGame()
         {
-
             GetComponent<SavingSystem>().Load(defaultSaveFile);
+
         }
     }
 }
