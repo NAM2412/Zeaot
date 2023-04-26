@@ -12,17 +12,10 @@ namespace RPG.SCeneManagement
         void Start()
         {
             canvasGroup = GetComponent<CanvasGroup>();
-            StartCoroutine(FadeOutIn());
+          
 
         }
 
-        public IEnumerator FadeOutIn()
-        {
-            yield return FadeOut(timeToFadeOut);
-            Debug.Log("Fade out");
-            yield return FadeIn(timeToFadeIn);
-            Debug.Log("Fade in");
-        }
         public IEnumerator FadeOut(float time)
         {
             while (canvasGroup.alpha < 1)
@@ -32,7 +25,7 @@ namespace RPG.SCeneManagement
             }
         }
 
-        IEnumerator FadeIn(float time)
+        public IEnumerator FadeIn(float time)
         {
             while (canvasGroup.alpha > 0)
             {

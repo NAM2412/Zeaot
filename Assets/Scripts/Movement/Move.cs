@@ -4,10 +4,11 @@ using System.Collections.Generic;
 using RPG.Core;
 using UnityEngine;
 using UnityEngine.AI;
+using RPG.Saving;
 
 namespace RPG.Movement
 {
-    public class Move : MonoBehaviour, IAction
+    public class Move : MonoBehaviour, IAction, ISaveable
     {
         [SerializeField] float maxSpeed = 6f;
     
@@ -57,6 +58,20 @@ namespace RPG.Movement
         {
             MoveToDestination(destination, speedFraction);
             GetComponent<ActionScheduler>().StartAction(this);
+        }
+
+        public object CaptureState()
+        {
+            return  new SerializableVector3(transform.position);
+        }
+
+        public void RestoreState(object state)
+        {
+            SerializableVector3 postion = (SerializableVector3)state;
+            GetComponent<NavMeshAgent>().enabled = false; /* avoid nav mesh interfering, stop the nav mesh agent 
+                                                            from meddling wwith postion */
+            transform.position = postion.ToVector();
+            GetComponent<NavMeshAgent>().enabled = true;
         }
     }
 }

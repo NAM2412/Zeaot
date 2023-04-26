@@ -16,6 +16,9 @@ namespace RPG.SCeneManagement
         [SerializeField] int sceneToLoad = -1;
         [SerializeField] Transform spawnPoint;
         [SerializeField] DestinationIdentifier destination;
+        [SerializeField] float fadeOutTime = 1f;
+        [SerializeField] float fadeInTime = 2f;
+        [SerializeField] float fadeWaitTime = 0.5f;
         private void OnTriggerEnter(Collider other)
         {
             if (other.tag == "Player")
@@ -32,14 +35,27 @@ namespace RPG.SCeneManagement
                 yield break;
             }
 
-
             DontDestroyOnLoad(gameObject);
+
+            Fader fader = FindObjectOfType<Fader>();
+
+            yield return fader.FadeOut(fadeOutTime);
+
+            SavingWrapper savingWrapper = FindObjectOfType<SavingWrapper>();
+            savingWrapper.SaveGame(); // Saving current level
+
             yield return SceneManager.LoadSceneAsync(sceneToLoad);
-            
+
+            savingWrapper.LoadGame(); // load current level
 
 
             Portal otherPortal = GetOtherPortal();
-            UpdatePlayerSpawnPosition(otherPortal); // player will be spawn at the spawnpoint, not default location in scene
+            UpdatePlayerSpawnPosition(otherPortal);
+
+            savingWrapper.SaveGame();
+
+            yield return new WaitForSeconds(fadeWaitTime);
+            yield return fader.FadeIn(fadeInTime);
 
 
             Destroy(gameObject);
@@ -48,8 +64,11 @@ namespace RPG.SCeneManagement
         private void UpdatePlayerSpawnPosition(Portal otherPortal)
         {
             GameObject player = GameObject.FindWithTag("Player");
-            player.GetComponent<NavMeshAgent>().Warp(otherPortal.spawnPoint.position);
+
+            player.GetComponent<NavMeshAgent>().enabled = false;
+            player.transform.position = otherPortal.spawnPoint.position;
             player.transform.rotation = otherPortal.spawnPoint.rotation;
+            player.GetComponent<NavMeshAgent>().enabled = true;
         }
 
         private Portal GetOtherPortal() 
