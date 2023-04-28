@@ -10,6 +10,9 @@ namespace RPG.Combat
         [SerializeField] float weaponRange = 2f;
         [SerializeField] float timeIntervalBetweenEachAttacks = 1f;
         [SerializeField] float weaponDamage = 5f;
+        [SerializeField] GameObject weaponPrefab = null;
+        [SerializeField] Transform handTransform = null;
+        [SerializeField] AnimatorOverrideController weaponOverride = null;
         Health target;
         float maxSpeedValue = 1f;
         float timeSinceLastAttack = Mathf.Infinity; 
@@ -17,6 +20,7 @@ namespace RPG.Combat
         private void Start() 
         {
             combatTarget1 = FindObjectOfType<CombatTarget>();
+            SpawnWeapon();
         }
         void Update()
         {
@@ -36,6 +40,7 @@ namespace RPG.Combat
             }
         }
 
+        #region Attack behaviour
         private  void AttackBehaviour()
         {
             //make player look at target first
@@ -95,6 +100,14 @@ namespace RPG.Combat
 
             Health targetToTest = combatTarget.GetComponent<Health>();
             return targetToTest != null && !targetToTest.IsDead;
+        }
+        #endregion
+
+        private void SpawnWeapon() 
+        {
+            Instantiate(weaponPrefab, handTransform);
+            Animator animator = GetComponent<Animator>();
+            animator.runtimeAnimatorController = weaponOverride;
         }
     }
 }
