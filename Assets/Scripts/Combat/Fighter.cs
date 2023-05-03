@@ -39,6 +39,26 @@ namespace RPG.Combat
                 AttackBehaviour();
             }
         }
+        #region  Animation event
+        private void Hit() 
+        {
+            if (target == null) { return; }
+            if (currentWeapon.HasProjectile())
+            {
+                currentWeapon.LaunchProjectile(rightHandTransform, leftHandTransform, target);
+            }
+            else
+            {
+                target.TakeDamge(currentWeapon.WeaponDamage);
+            }
+        }
+
+        private void Shoot () 
+        {
+            Hit();
+        }
+        
+        #endregion
 
         #region Attack behaviour
         private  void AttackBehaviour()
@@ -61,13 +81,6 @@ namespace RPG.Combat
                                                                     not-attacking bug from player when player in Attack state*/
 
             GetComponent<Animator>().SetTrigger("attack");
-        }
-
-        // Animation event
-        private void Hit() 
-        {
-            if (target == null) { return; }
-            target.TakeDamge(currentWeapon.WeaponDamage);
         }
 
         private bool GetIsInRange() // is player reach the enemy in weapon's range?
