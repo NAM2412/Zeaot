@@ -7,20 +7,20 @@ namespace RPG.Combat
 {
     public class Fighter : MonoBehaviour, IAction
     {
-        [SerializeField] float weaponRange = 2f;
         [SerializeField] float timeIntervalBetweenEachAttacks = 1f;
-        [SerializeField] float weaponDamage = 5f;
-        [SerializeField] Transform handTransform = null;
-        [SerializeField] Weapon weapon = null;
+        [SerializeField] Transform rightHandTransform = null;
+        [SerializeField] Transform leftHandTransform = null;
+        [SerializeField] Weapon defaultWeapon = null;
 
         Health target;
         float maxSpeedValue = 1f;
         float timeSinceLastAttack = Mathf.Infinity; 
         CombatTarget combatTarget1;
+        Weapon currentWeapon = null;
         private void Start() 
         {
             combatTarget1 = FindObjectOfType<CombatTarget>();
-            SpawnWeapon();
+            EquipWeapon(defaultWeapon);
         }
         void Update()
         {
@@ -67,12 +67,12 @@ namespace RPG.Combat
         private void Hit() 
         {
             if (target == null) { return; }
-            target.TakeDamge(weaponDamage);
+            target.TakeDamge(currentWeapon.WeaponDamage);
         }
 
         private bool GetIsInRange() // is player reach the enemy in weapon's range?
         {
-            return Vector3.Distance(transform.position, target.transform.position) < weaponRange;
+            return Vector3.Distance(transform.position, target.transform.position) < currentWeapon.WeaponRange;
         }
 
         public void Attack (GameObject combatTarget) 
@@ -103,11 +103,11 @@ namespace RPG.Combat
         }
         #endregion
 
-        private void SpawnWeapon() 
+        public void EquipWeapon(Weapon weapon) 
         {
-            if (weapon == null) return;
+            currentWeapon = weapon;
             Animator animator = GetComponent<Animator>();
-            weapon.Spawn(handTransform, animator);
+            weapon.Spawn(rightHandTransform, leftHandTransform, animator);
         }
     }
 }

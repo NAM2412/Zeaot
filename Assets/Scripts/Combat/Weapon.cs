@@ -6,11 +6,27 @@ namespace RPG.Combat
     public class Weapon : ScriptableObject
     {
         [SerializeField] AnimatorOverrideController animatorOverride = null;
-        [SerializeField] GameObject weaponPrefab = null;      
-        public void Spawn(Transform handTransform, Animator animator)
+        [SerializeField] GameObject equippedPrefab = null;      // similar to weapon prefab
+        [SerializeField] float weaponRange = 2f;
+        [SerializeField] float weaponDamage = 5f;
+        [SerializeField] bool isRightHanded = true;
+
+        public float WeaponRange { get => weaponRange; set => weaponRange = value; }
+        public float WeaponDamage { get => weaponDamage; set => weaponDamage = value; }
+
+        public void Spawn(Transform rightHand, Transform leftHand, Animator animator)
         {
-            Instantiate(weaponPrefab, handTransform);
-            animator.runtimeAnimatorController = animatorOverride;
+            if (equippedPrefab != null)
+            {
+                Transform handTransform;
+                if (isRightHanded) handTransform = rightHand;
+                else handTransform = leftHand;
+                Instantiate(equippedPrefab, handTransform);
+            }
+            if (animatorOverride != null)
+            {
+                animator.runtimeAnimatorController = animatorOverride;
+            }
         }  
     }
 }
