@@ -160,31 +160,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 961099943609703823, guid: 15f1c09a467e0984da8e744dc2090457, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -37.02817
+      value: -17.679401
       objectReference: {fileID: 0}
     - target: {fileID: 961099943609703823, guid: 15f1c09a467e0984da8e744dc2090457, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6.2846227
+      value: 7.841233
       objectReference: {fileID: 0}
     - target: {fileID: 961099943609703823, guid: 15f1c09a467e0984da8e744dc2090457, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 26.988487
+      value: 10.393164
       objectReference: {fileID: 0}
     - target: {fileID: 961099943609703823, guid: 15f1c09a467e0984da8e744dc2090457, type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.7080687
+      value: 0.6693757
       objectReference: {fileID: 0}
     - target: {fileID: 961099943609703823, guid: 15f1c09a467e0984da8e744dc2090457, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.13123281
+      value: 0.20094426
       objectReference: {fileID: 0}
     - target: {fileID: 961099943609703823, guid: 15f1c09a467e0984da8e744dc2090457, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.68222356
+      value: -0.6856524
       objectReference: {fileID: 0}
     - target: {fileID: 961099943609703823, guid: 15f1c09a467e0984da8e744dc2090457, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.1264427
+      value: 0.20356439
       objectReference: {fileID: 0}
     - target: {fileID: 961099943609703823, guid: 15f1c09a467e0984da8e744dc2090457, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -215,6 +215,10 @@ PrefabInstance:
     - target: {fileID: 564853355433969345, guid: a45f652f63ff47345936cb83e2f0d0fd, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 3887007260455828583, guid: a45f652f63ff47345936cb83e2f0d0fd, type: 3}
+      propertyPath: m_UseGravity
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5885520912261431520, guid: a45f652f63ff47345936cb83e2f0d0fd, type: 3}
       propertyPath: m_RootOrder
