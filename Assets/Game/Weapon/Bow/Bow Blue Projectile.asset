@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e50c135c7da6c3949b2d711dc14dba96, type: 3}
-  m_Name: Bow
+  m_Name: Bow Blue Projectile
   m_EditorClassIdentifier: 
   animatorOverride: {fileID: 22100000, guid: 4baf46a505921954d8fa765571d809e5, type: 2}
   equippedPrefab: {fileID: 7236857225836709032, guid: ce50e204fb2b3e647917481ff083b211, type: 3}
