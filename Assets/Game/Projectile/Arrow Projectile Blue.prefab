@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4632465048752807214, guid: b72229f2310cee64391c4f8f2ba02418, type: 3}
+      propertyPath: hitEffect
+      value: 
+      objectReference: {fileID: 2186577390591777015, guid: c5f15bf70d5f8f8488299f3cea6e69ef, type: 3}
     - target: {fileID: 6984900769606018480, guid: b72229f2310cee64391c4f8f2ba02418, type: 3}
       propertyPath: m_Parameters.colorGradient.key0.b
       value: 0.5188679
@@ -37,7 +41,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8001265917978404802, guid: b72229f2310cee64391c4f8f2ba02418, type: 3}
       propertyPath: m_Name
-      value: ArrowProjectile Blue
+      value: Arrow Projectile Blue
       objectReference: {fileID: 0}
     - target: {fileID: 8001265917978404803, guid: b72229f2310cee64391c4f8f2ba02418, type: 3}
       propertyPath: m_RootOrder
