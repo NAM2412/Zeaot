@@ -1,11 +1,12 @@
 using UnityEngine;
 using RPG.Movement;
 using RPG.Core;
+using RPG.Saving;
 using System.Collections;
 
 namespace RPG.Combat
 {
-    public class Fighter : MonoBehaviour, IAction
+    public class Fighter : MonoBehaviour, IAction, ISaveable
     {
         [SerializeField] float timeIntervalBetweenEachAttacks = 1f;
         [SerializeField] Transform rightHandTransform = null;
@@ -20,7 +21,11 @@ namespace RPG.Combat
         private void Start() 
         {
             combatTarget1 = FindObjectOfType<CombatTarget>();
-            EquipWeapon(defaultWeapon);
+            if (currentWeapon == null)
+            {
+                EquipWeapon(defaultWeapon);
+            }
+
         }
         void Update()
         {
@@ -121,6 +126,18 @@ namespace RPG.Combat
             currentWeapon = weapon;
             Animator animator = GetComponent<Animator>();
             weapon.Spawn(rightHandTransform, leftHandTransform, animator);
+        }
+
+        public object CaptureState()
+        {
+            return currentWeapon.name;
+        }
+
+        public void RestoreState(object state)
+        {
+            string weaponName = (string)state;
+            Weapon weapon = Resources.Load<Weapon>(weaponName);
+            EquipWeapon(weapon);
         }
     }
 }
