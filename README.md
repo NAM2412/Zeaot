@@ -1,2 +1,4 @@
-<h1> # Zeaot <h1>
-<h2> My first 3D Game <h2>
+<h1> # ZeaOT - 3rd-Person Action RPG <h1>
+<h2> FEATURES <h2>
+<h3> **GAME MECHANIC** <h3>
+- Game core:
