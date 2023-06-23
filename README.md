@@ -21,5 +21,10 @@
 - Level building and game progression 
 - Branching dialogue system
 - Inventory, loot, usable items
+## TECHNIQUE USES
+- Nav Mesh Agent
+- Behaviour Tree
+- Singleton, Observer and State Pattern
+- Cinemachine system
 ## DEMO
 https://github.com/NAM2412/Zeaot/assets/91317065/fab1cc92-2806-46cc-b198-d8cd7ec99914
